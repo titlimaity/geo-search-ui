@@ -25,7 +25,7 @@ def lambda_handler(event, context):
         body = json.loads(event.get('body', '{}'))
 
         complete_address = body.get('complete_address')
-        radius = 50000
+        radius = max(1000, min(int(body.get('radius', 50000)), 100000))
 
         if not complete_address:
             return {

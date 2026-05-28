@@ -46,6 +46,7 @@ function App() {
 
   const [searchCoords, setSearchCoords] = useState(null);
   const [selected, setSelected] = useState(null);
+  const [radius, setRadius] = useState(50000);
 
   const searchLocation = async () => {
     if (!address) {
@@ -58,6 +59,7 @@ function App() {
 
       const response = await axios.post(API_URL, {
         complete_address: address,
+        radius: Number(radius),
       });
 
       const data =
@@ -159,6 +161,18 @@ function App() {
             />
           </div>
 
+          {/* RADIUS */}
+          <select
+            value={radius}
+            onChange={(e) => setRadius(e.target.value)}
+            className="radiusSelect"
+          >
+            <option value="10000">10 KM</option>
+            <option value="25000">25 KM</option>
+            <option value="50000">50 KM</option>
+            <option value="100000">100 KM</option>
+          </select>
+
           {/* BUTTON */}
           <button onClick={searchLocation} className="searchButton">
             🔍 Search
@@ -245,7 +259,7 @@ function App() {
                         <p className="locationText">
                           🌐 {cleanValue(item.state)}
                         </p>
-                        
+
                         <p className="locationText">
                           📌 Coordinates:{" "}
                           {item.latitude && item.longitude
