@@ -276,6 +276,13 @@ function MapView({
                     {item.state ||
                       "State unavailable"}
                   </p>
+
+                  <p>
+                    📌 Coordinates:{" "}
+                    {item.latitude && item.longitude
+                      ? `${Number(item.latitude).toFixed(6)}, ${Number(item.longitude).toFixed(6)}`
+                      : "Not available"}
+                  </p>
                 </div>
               </Popup>
             </Marker>

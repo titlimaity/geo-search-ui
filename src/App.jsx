@@ -245,6 +245,14 @@ function App() {
                         <p className="locationText">
                           🌐 {cleanValue(item.state)}
                         </p>
+                        
+                        <p className="locationText">
+                          📌 Coordinates:{" "}
+                          {item.latitude && item.longitude
+                            ? `${Number(item.latitude).toFixed(6)}, ${Number(item.longitude).toFixed(6)}`
+                            : "Not available"}
+                        </p>
+
                       </div>
                     </div>
 

@@ -580,3 +580,10 @@ body::-webkit-scrollbar {
     padding: 8px 11px;
   }
 }
+.coordinateText {
+  color: #c4b5fd;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  word-break: break-word;
+}
