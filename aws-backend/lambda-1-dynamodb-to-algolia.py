@@ -34,6 +34,9 @@ def lambda_handler(event, context):
             complete_address = ', '.join(address_parts)
             
             print(f"Complete Address: {complete_address}")
+
+            """The f before the quotation marks means formatted string, or f-string.
+            It allows you to put a variable directly inside a string using {}."""
             
             record = {
                 "objectID": locationId, 
@@ -76,3 +79,6 @@ def lambda_handler(event, context):
             if location_id:
                 print(f"Deleting the location ID: {location_id}")
                 index.delete_object(location_id)
+
+            """The f before the quotation marks means formatted string, or f-string.
+            It allows you to put a variable directly inside a string using {}."""
